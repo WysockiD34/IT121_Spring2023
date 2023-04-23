@@ -1,0 +1,17 @@
+<html>
+    <head>
+    </head>
+    <Body>
+        <script>
+    let currentDateTime = new Date();
+    console.log(currentDateTime); // for example, this would come out at as april 22, 2023 in the console
+
+    let future = new Date(currentDateTime.getFullYear(), currentDateTime.getMonth() + 12, currentDateTime.getDate()); // this adds 12 months to the current date that is defined as the currentDateTime
+
+    console.log(future.toDateString()); //this would show up in the console as april 22, 2024 in the console
+    document.write(future.toDateString());
+
+
+        </script>
+    </Body>
+</html>
