@@ -1,0 +1,22 @@
+<html>
+    <head>
+    </head>
+    <Body>
+        <script>
+
+        const myArr = ["Rock", "Paper", "Scissors"];
+
+        let computer = Math.floor(Math.random() * 3);
+        let player = Math.floor(Math.random() * 3);
+        let message = "player " + myArr[player] + " vs computer " + myArr[computer] + " ";
+
+        if (player == computer) {
+            console.log(message + "ends in a tie");
+        } else if (player > computer) {
+            console.log(message + "player wins");
+        } else {
+            console.log(message + "computer wins");
+        }
+        </script>
+    </Body>
+</html>
