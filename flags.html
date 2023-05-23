@@ -1,0 +1,47 @@
+<html>
+<head>
+</head>
+<body>
+    <img id="flag1" src="franceFlag.png" onclick="changeimg(event)" width="315"/>
+    <img id="flag2" src="usFlag.webp" onclick="changeimg(event)" width="400"/>
+    <img id="flag3" src="italy.png" onclick="changeimg(event)" width="400"/>
+
+    <button onclick="resetPage()">Reset</button>
+
+    <script>
+        var flags = ["franceFlag.png", "usFlag.webp", "italy.png"];
+        var visibleFlags = ["flag1", "flag2"];
+        var flagIndex = 0;
+
+        function changeimg(event) {
+            flagIndex = (flagIndex + 1) % flags.length;
+            var currentFlagId = event.target.id;
+            var nextFlagId = "flag" + (flagIndex + 1);
+
+            event.target.src = flags[flagIndex];
+            document.getElementById(currentFlagId).style.display = "none";
+            document.getElementById(nextFlagId).style.display = "inline-block";
+
+            visibleFlags.shift();
+            visibleFlags.push(nextFlagId);
+        }
+
+        function resetPage() {
+            flagIndex = 0;
+            for (var i = 0; i < flags.length; i++) {
+                var flagId = "flag" + (i + 1);
+                var imageElement = document.getElementById(flagId);
+                imageElement.src = flags[i];
+                if (visibleFlags.indexOf(flagId) !== -1) {
+                    imageElement.style.display = "inline-block";
+                } else {
+                    imageElement.style.display = "none";
+                }
+            }
+        }
+    </script>
+
+    <style>
+    </style>
+</body>
+</html>
