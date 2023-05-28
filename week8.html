@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style> 
+    #container {
+      width: 400px;
+      height: 400px;
+      background-color: yellow;
+      position: relative;
+    }
+    #animate {
+     width: 50px;
+     height: 50px;
+     background-color: red;
+     position: absolute;
+    }
+</style>
+</head>
+<body>
+  <div id="container">
+    <div id="animate"></div>
+  </div>
+  <button onclick="myMove()">Click Me</button>
+  <script>
+    function myMove() { 
+      let id = null; //declaring variables
+      const elem = document.getElementById("animate"); 
+      let pos = 0; //Intitial postion of the animated element
+      clearInterval(id); //Clears any previously made animation
+      id = setInterval(frame, 5); //starts the animation by calling the frame function every 5 milliseconds
+      function frame() {
+        if (pos == 350) { 
+          clearInterval(id); //stops the animation
+        } else {
+          pos++; //Increments the position by 1
+          elem.style.top = pos + 'px'; //updates the top position of the element
+          elem.style.left = pos + 'px'; //updates the left position of the element
+        }
+      }
+    }
+  </script>
+</body>
+</html>    
